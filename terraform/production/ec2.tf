@@ -9,7 +9,7 @@ module "ec2_instance" {
   key_name               = "console"
   monitoring             = true
   vpc_security_group_ids = module.vpc.default_security_group_id
-  subnet_id              = module.vpc.public_subnets[1]
+  subnet_id              = element(module.vpc.private_subnets, 0)
 
   tags = local.tags
 }
