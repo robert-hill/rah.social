@@ -3,7 +3,12 @@ module "vpc" {
   version = "~> 3.0"
 
   name = local.name
+
+  enable_nat_gateway = true
+  single_nat_gateway = true
+
   cidr = "10.99.0.0/18"
+
 
   azs              = ["${local.region}a", "${local.region}b", "${local.region}c"]
   public_subnets   = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
