@@ -24,10 +24,10 @@ resource "aws_security_group" "allow_tls" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description      = "TLS from VPC"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
+    description = "TLS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
   }
 
   egress {
@@ -49,10 +49,10 @@ resource "aws_security_group" "allow_https" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description      = "HTTP from VPC"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
+    description = "HTTP from VPC"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
   }
 
   egress {
@@ -74,10 +74,10 @@ resource "aws_security_group" "allow_ssh" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description      = "SSH from VPC"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
+    description = "SSH from VPC"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
   }
 
   egress {
