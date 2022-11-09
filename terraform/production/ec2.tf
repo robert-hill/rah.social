@@ -4,16 +4,16 @@ module "ec2_instance" {
 
   name = local.name
 
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = local.instance_type
-  key_name               = "console"
-  monitoring             = true
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = local.instance_type
+  key_name      = "console"
+  monitoring    = true
   vpc_security_group_ids = [
     aws_security_group.allow_http.id,
     aws_security_group.allow_tls.id,
     aws_security_group.allow_ssh
   ]
-  subnet_id              = element(module.vpc.private_subnets, 0)
+  subnet_id = element(module.vpc.private_subnets, 0)
 
   tags = local.tags
 }
