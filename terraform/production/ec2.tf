@@ -43,7 +43,7 @@ resource "aws_security_group" "allow_tls" {
   }
 }
 
-resource "aws_security_group" "allow_https" {
+resource "aws_security_group" "allow_http" {
   name        = "allow_http"
   description = "Allow HTTP inbound traffic"
   vpc_id      = module.vpc.vpc_id
