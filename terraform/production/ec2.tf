@@ -1,11 +1,11 @@
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "~> 3.0"
+  version = "~> 4.2.0"
 
-  name = "mastodon-server-production"
+  name = local.name
 
   ami                    = "ami-ebd02392"
-  instance_type          = "t2.micro"
+  instance_type          = "t3a.micro"
   key_name               = "user1"
   monitoring             = true
   vpc_security_group_ids = ["sg-12345678"]
@@ -17,4 +17,3 @@ module "ec2_instance" {
     Site        = "rah.social"
   }
 }
-
