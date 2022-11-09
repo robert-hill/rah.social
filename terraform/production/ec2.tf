@@ -4,16 +4,12 @@ module "ec2_instance" {
 
   name = local.name
 
-  ami                    = "ami-ebd02392"
-  instance_type          = "t3a.micro"
-  key_name               = "user1"
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = local.instance_type
+  key_name               = "console"
   monitoring             = true
-  vpc_security_group_ids = ["sg-12345678"]
-  subnet_id              = "subnet-eddcdzz4"
+  vpc_security_group_ids = module.vpc.default_security_group_id
+  subnet_id              = module.vpc.subnet_id
 
-  tags = {
-    Terraform   = "true"
-    Environment = "production"
-    Site        = "rah.social"
-  }
+  tags = local.tags
 }
