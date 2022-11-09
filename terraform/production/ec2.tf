@@ -11,7 +11,7 @@ module "ec2_instance" {
   vpc_security_group_ids = [
     aws_security_group.allow_http.id,
     aws_security_group.allow_tls.id,
-    aws_security_group.allow_ssh
+    aws_security_group.allow_ssh.id
   ]
   subnet_id = element(module.vpc.private_subnets, 0)
 
