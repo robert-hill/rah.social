@@ -35,7 +35,7 @@ resource "aws_route53_record" "spf_mail_from" {
 }
 
 resource "aws_route53_record" "spf_domain" {
-  zone_id = data.aws_route53_zone.this.zone_id  
+  zone_id = data.aws_route53_zone.this.zone_id
   name    = data.aws_route53_zone.this.name
   type    = "TXT"
   ttl     = "600"
