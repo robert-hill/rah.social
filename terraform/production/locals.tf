@@ -8,4 +8,7 @@ locals {
     Environment = "production"
     Site        = "rah.social"
   }
+
+  fast_ttl = "30"
+  slow_ttl = "300"
 }
