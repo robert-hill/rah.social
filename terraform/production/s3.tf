@@ -10,8 +10,8 @@ module "s3_bucket" {
 }
 
 module "s3_user" {
-  source = "cloudposse/iam-s3-user/aws"
-  version     = "0.15.10"
+  source  = "cloudposse/iam-s3-user/aws"
+  version = "0.15.10"
 
   name = "${local.name}-s3-user"
 
