@@ -11,8 +11,10 @@ module "s3_bucket" {
 
 module "s3_user" {
   source = "cloudposse/iam-s3-user/aws"
-  version     = "1.0.0"
+  version     = "0.15.10"
+
+  name = "${local.name}-s3-user"
 
   s3_actions   = ["s3:*"]
-  s3_resources = "${module.s3_bucket.arn}/*"
+  s3_resources = ["${module.s3_bucket.s3_bucket_arn}/*"]
 }
