@@ -1,7 +1,7 @@
 locals {
   name          = "mastodon-server-production"
   region        = "us-west-2"
-  instance_type = "t3a.micro"
+  instance_type = "m5a.large"
 
   tags = {
     Terraform   = "true"
