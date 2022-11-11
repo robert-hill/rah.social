@@ -48,10 +48,10 @@ resource "aws_elb" "mastodon" {
   }
 
   listener {
-    instance_port     = 443
-    instance_protocol = "https"
-    lb_port           = 443
-    lb_protocol       = "https"
+    instance_port      = 443
+    instance_protocol  = "https"
+    lb_port            = 443
+    lb_protocol        = "https"
     ssl_certificate_id = module.acm.acm_certificate_arn
   }
 
