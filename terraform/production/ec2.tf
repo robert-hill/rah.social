@@ -37,7 +37,7 @@ resource "aws_volume_attachment" "ebs_att" {
 # Network Load Balancer
 
 resource "aws_elb" "mastodon" {
-  name               = "${local.name}-elb"
+  name    = "${local.name}-elb"
   subnets = [element(module.vpc.public_subnets, 0)]
 
   listener {
