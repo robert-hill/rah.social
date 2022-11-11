@@ -36,39 +36,38 @@ resource "aws_volume_attachment" "ebs_att" {
 
 # Network Load Balancer
 
-resource "aws_lb" "mastodon" {
-  name               = "${local.name}-lb"
-  internal           = false
-  load_balancer_type = "network"
-  subnets            = [module.vpc.public_subnets[0]]
+resource "aws_elb" "mastodon" {
+  name               = "${local.name}-elb"
+  availability_zones = ["us-west-2a"]
 
-  enable_deletion_protection = true
+  listener {
+    instance_port     = 80
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
+  }
+
+  listener {
+    instance_port     = 443
+    instance_protocol = "https"
+    lb_port           = 443
+    lb_protocol       = "https"
+  }
+
+  listener {
+    instance_port     = 22
+    instance_protocol = "TCP"
+    lb_port           = 22
+    lb_protocol       = "TCP"
+  }
+
+  instances                   = [module.ec2_instance.id]
+  cross_zone_load_balancing   = true
+  idle_timeout                = 400
+  connection_draining         = true
+  connection_draining_timeout = 400
 
   tags = local.tags
-}
-
-resource "aws_lb_target_group" "mastodon_ssh" {
-  name     = "${local.name}-lb-tg"
-  port     = 22
-  protocol = "TCP"
-  vpc_id   = module.vpc.vpc_id
-}
-
-resource "aws_lb_target_group_attachment" "mastodon_instance_ssh" {
-  target_group_arn = aws_lb_target_group.mastodon_ssh.arn
-  target_id        = module.ec2_instance.id
-  port             = 22
-}
-
-resource "aws_lb_listener" "mastodon_ssh" {
-  load_balancer_arn = aws_lb.mastodon.arn
-  port              = "22"
-  protocol          = "TCP"
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.mastodon_ssh.arn
-  }
 }
 
 # Security Groups
