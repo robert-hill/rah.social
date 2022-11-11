@@ -55,13 +55,6 @@ resource "aws_elb" "mastodon" {
     ssl_certificate_id = module.acm.acm_certificate_arn
   }
 
-  listener {
-    instance_port     = 22
-    instance_protocol = "TCP"
-    lb_port           = 22
-    lb_protocol       = "TCP"
-  }
-
   instances                   = [module.ec2_instance.id]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
