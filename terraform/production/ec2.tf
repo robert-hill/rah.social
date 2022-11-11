@@ -56,9 +56,9 @@ resource "aws_elb" "mastodon" {
   }
 
   listener {
-    instance_port     = 22
+    instance_port     = 2222
     instance_protocol = "TCP"
-    lb_port           = 22
+    lb_port           = 2222
     lb_protocol       = "TCP"
   }
 
