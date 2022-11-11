@@ -18,6 +18,22 @@ module "ec2_instance" {
   tags = local.tags
 }
 
+resource "aws_ebs_volume" "mastodon" {
+  availability_zone = "${local.region}a"
+  size              = 100
+  encrypted         = true
+  type              = "gp3"
+
+
+  tags = local.tags
+}
+
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.mastodon.id
+  instance_id = module.ec2_instance.id
+}
+
 # Network Load Balancer
 
 resource "aws_lb" "mastodon" {
