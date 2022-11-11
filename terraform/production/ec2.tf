@@ -48,13 +48,13 @@ resource "aws_elb" "mastodon" {
   }
 
   listener {
-    instance_port      = 443
-    instance_protocol  = "https"
-    lb_port            = 443
-    lb_protocol        = "https"
+    instance_port     = 443
+    instance_protocol = "https"
+    lb_port           = 443
+    lb_protocol       = "https"
   }
 
- listener {
+  listener {
     instance_port     = 22
     instance_protocol = "TCP"
     lb_port           = 22
