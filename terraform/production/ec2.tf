@@ -38,7 +38,7 @@ resource "aws_volume_attachment" "ebs_att" {
 
 resource "aws_elb" "mastodon" {
   name               = "${local.name}-elb"
-  availability_zones = ["us-west-2a"]
+  subnets = [element(module.vpc.public_subnets, 0)]
 
   listener {
     instance_port     = 80
