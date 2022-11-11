@@ -3,7 +3,7 @@ module "acm" {
   version = "~> 4.0"
 
   domain_name = "rah.social"
-  zone_id     = data.aws_route53_zone.this
+  zone_id     = data.aws_route53_zone.this.zone_id
 
   subject_alternative_names = [
     "*.rah.social"
