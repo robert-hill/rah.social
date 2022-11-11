@@ -67,7 +67,7 @@ jobs:
 
           <details><summary>Show Plan</summary>
 
-          \`\`\`terraform\n${plan}\`\`\`
+          \`\`\` terraform\n ${{ plan }} \`\`\`
 
           </details>
           
