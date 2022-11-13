@@ -1,7 +1,7 @@
 resource "aws_route53_record" "apex" {
-  name    = data.aws_route53_zone.this.name
-  type    = "A"
-  ttl     = local.fast_ttl
+  name = data.aws_route53_zone.this.name
+  type = "A"
+  ttl  = local.fast_ttl
   records = [
     aws_eip.carrier_ip
   ]

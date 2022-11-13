@@ -38,7 +38,7 @@ resource "aws_volume_attachment" "ebs_att" {
 
 resource "aws_eip" "rah_social" {
   instance = module.ec2_instance.id
-  vpc = true
+  vpc      = true
 }
 
 resource "aws_eip_association" "rah_social" {
