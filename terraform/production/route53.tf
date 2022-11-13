@@ -3,7 +3,7 @@ resource "aws_route53_record" "apex" {
   type = "A"
   ttl  = local.fast_ttl
   records = [
-    aws_eip.carrier_ip
+    aws_eip.rah_social.carrier_ip
   ]
   zone_id = data.aws_route53_zone.this.zone_id
 }
