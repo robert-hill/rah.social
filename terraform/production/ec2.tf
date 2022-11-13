@@ -34,8 +34,17 @@ resource "aws_volume_attachment" "ebs_att" {
   instance_id = module.ec2_instance.id
 }
 
-# Network Load Balancer
+# Elastic IP
 
+resource "aws_eip" "rah_social" {
+  instance = module.ec2_instance.id
+  vpc = true
+}
+
+resource "aws_eip_association" "rah_social" {
+  instance_id   = aws_instance.web.id
+  allocation_id = aws_eip.example.id
+}
 
 # Security Groups
 resource "aws_security_group" "allow_tls" {

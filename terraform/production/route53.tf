@@ -2,7 +2,9 @@ resource "aws_route53_record" "apex" {
   name    = data.aws_route53_zone.this.name
   type    = "A"
   ttl     = local.fast_ttl
-  records = ["52.34.151.162"]
+  records = [
+    aws_eip.carrier_ip
+  ]
   zone_id = data.aws_route53_zone.this.zone_id
 }
 
