@@ -12,7 +12,7 @@ resource "aws_route53_zone" "mail" {
 }
 
 resource "aws_route53_record" "mail_delegation" {
-  zone_id = data.aws_route53_zone.this
+  zone_id = data.aws_route53_zone.this.zone_id
   name    = "mail.rah.social"
   type    = "NS"
   ttl     = local.fast_ttl
@@ -22,7 +22,7 @@ resource "aws_route53_record" "mail_delegation" {
 }
 
 resource "aws_route53_record" "mail_txt" {
-  zone_id = data.aws_route53_zone.this
+  zone_id = data.aws_route53_zone.this.zone_id
   name    = aws_route53_zone.mail.name
   type    = "TXT"
   records = [
