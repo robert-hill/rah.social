@@ -20,7 +20,7 @@ resource "aws_route53_record" "mail_delegation" {
 }
 
 resource "aws_route53_record" "mail_txt" {
-  zone_id = data.aws_route53_zone.mail.zone_id
+  zone_id = aws_route53_zone.mail.zone_id
   name    = aws_route53_zone.mail.name
   type    = "TXT"
   records = [
