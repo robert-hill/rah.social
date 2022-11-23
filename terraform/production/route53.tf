@@ -58,7 +58,7 @@ resource "aws_route53_record" "mail_mx" {
 resource "aws_route53_record" "mail_meta" {
   zone_id = aws_route53_zone.mail.zone_id
   name    = "email.${aws_route53_zone.mail.name}"
-  type    = "TXT"
+  type    = "CNAME"
   ttl     = local.fast_ttl
   records = [
     "mailgun.org"
