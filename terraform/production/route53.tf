@@ -2,7 +2,7 @@ resource "aws_route53_record" "apex" {
   name    = data.aws_route53_zone.this.name
   type    = "A"
   ttl     = local.fast_ttl
-  records = ["34.208.138.160"]
+  records = ["34.212.26.129"]
   zone_id = data.aws_route53_zone.this.zone_id
 }
 
