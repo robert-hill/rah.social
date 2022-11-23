@@ -16,9 +16,7 @@ resource "aws_route53_record" "mail_delegation" {
   name    = "mail.rah.social"
   type    = "NS"
   ttl     = local.fast_ttl
-  records = [
-    aws_route53_zone.mail.name_servers
-  ]
+  records = aws_route53_zone.mail.name_servers
 }
 
 resource "aws_route53_record" "mail_txt" {
