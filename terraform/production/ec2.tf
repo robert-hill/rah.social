@@ -19,6 +19,7 @@ module "ec2_instance" {
     ignore_changes = [
       tags,
     ]
+    prevent_destroy = true
   }
 
   tags = local.tags
