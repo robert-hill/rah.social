@@ -20,7 +20,7 @@ resource "aws_route53_record" "mail_delegation" {
 }
 
 resource "aws_route53_record" "mail_txt" {
-  zone_id = data.aws_route53_zone.this.zone_id
+  zone_id = data.aws_route53_zone.mail.zone_id
   name    = aws_route53_zone.mail.name
   type    = "TXT"
   records = [
@@ -29,7 +29,7 @@ resource "aws_route53_record" "mail_txt" {
 }
 
 resource "aws_route53_record" "dkim" {
-  zone_id = data.aws_route53_zone.this.zone_id
+  zone_id = data.aws_route53_zone.mail.zone_id
   name    = "k1._domainkey.${aws_route53_zone.mail.name}"
   type    = "TXT"
   records = [
@@ -48,7 +48,7 @@ resource "aws_route53_record" "mail_mx" {
 }
 
 resource "aws_route53_record" "mail_meta" {
-  zone_id = data.aws_route53_zone.this.zone_id
+  zone_id = data.aws_route53_zone.mail.zone_id
   name    = "email.${aws_route53_zone.mail.name}"
   type    = "TXT"
   records = [
