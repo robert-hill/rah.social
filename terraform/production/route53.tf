@@ -35,7 +35,12 @@ resource "aws_route53_record" "dkim" {
   type    = "TXT"
   ttl     = local.fast_ttl
   records = [
-    "k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuH6kj5u/LwSyd/trcjt17rPJF5XmrGkK8zjFCoXmhWlKl2uCo9HT18sdEcJf5zW6YFqtyYbuQ8dafCyv8eUJecSO/wocDJtpui3x5D28jyKBff8o/ZgbySq+DiYwe80RR8MoUgtrZ8TpAotzmZE8mX0aQYDn4IO03my0M7w/fk7/iwO7B1Uwb6ik9Mf4JO4sioOHFzBwR0WmWTlH5muF6m9KxYgSfKX1UjDpCTKGQ9uwl6QrV1+Btmy6v7s7EYib6ZFMkkj+v0QizGq/N9NcB2iaIcn2uU+whad/Xz0UQNyXhSdZdcXyahKdZ2PYNu9k1rBT8r+F73g+hbsKRkp7SwIDAQAB"
+    "k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuH6kj5u/LwSyd/trcj",
+    "t17rPJF5XmrGkK8zjFCoXmhWlKl2uCo9HT18sdEcJf5zW6YFqtyYbuQ8dafCyv8eUJecSO/",
+    "wocDJtpui3x5D28jyKBff8o/ZgbySq+DiYwe80RR8MoUgtrZ8TpAotzmZE8mX0aQYDn4IO0",
+    "3my0M7w/fk7/iwO7B1Uwb6ik9Mf4JO4sioOHFzBwR0WmWTlH5muF6m9KxYgSfKX1UjDpCTK",
+    "GQ9uwl6QrV1+Btmy6v7s7EYib6ZFMkkj+v0QizGq/N9NcB2iaIcn2uU+whad/Xz0UQNyXhS",
+    "dZdcXyahKdZ2PYNu9k1rBT8r+F73g+hbsKRkp7SwIDAQAB"
   ]
 }
 
