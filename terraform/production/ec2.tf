@@ -15,6 +15,12 @@ module "ec2_instance" {
   ])
   subnet_id = element(module.vpc.public_subnets, 0)
 
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
+
   tags = local.tags
 }
 
